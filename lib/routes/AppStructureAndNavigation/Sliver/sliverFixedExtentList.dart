@@ -19,7 +19,7 @@ class _SliverFixedExtentListState extends State<SliverFixedExtentListPage> {
             floating: false,
             snap: false,
             flexibleSpace: FlexibleSpaceBar(
-              title: Text('SliverFadeTransition'),
+              title: Text('SliverFixedExtentList'),
               centerTitle: true,
             ),
             backgroundColor: Colors.blue[900],

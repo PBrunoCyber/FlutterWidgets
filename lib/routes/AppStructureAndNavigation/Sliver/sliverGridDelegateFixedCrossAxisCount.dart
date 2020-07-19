@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
-class SliverGridPage extends StatefulWidget {
+class SliverGridDelegateWithFixedCrossAxisCountPage extends StatefulWidget {
   @override
-  _SliverGridState createState() => _SliverGridState();
+  _SliverGridDelegateWithFixedCrossAxisCountState createState() =>
+      _SliverGridDelegateWithFixedCrossAxisCountState();
 }
 
-class _SliverGridState extends State<SliverGridPage> {
+class _SliverGridDelegateWithFixedCrossAxisCountState
+    extends State<SliverGridDelegateWithFixedCrossAxisCountPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +21,10 @@ class _SliverGridState extends State<SliverGridPage> {
             floating: false,
             snap: false,
             flexibleSpace: FlexibleSpaceBar(
-              title: Text('Sliver Grid'),
+              title: Text(
+                'SliverGridDelegateFixedCrossAxisCount',
+                textAlign: TextAlign.center,
+              ),
               centerTitle: true,
             ),
             backgroundColor: Colors.blue[900],
@@ -32,9 +37,9 @@ class _SliverGridState extends State<SliverGridPage> {
                     color: Colors.blue[100 * (index % 9) + 100],
                   ));
             }, childCount: 15),
-            gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-              maxCrossAxisExtent: 400.0,
-              mainAxisSpacing: 0.0,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              mainAxisSpacing: 10.0,
               crossAxisSpacing: 0.0,
               childAspectRatio: 1,
             ),
