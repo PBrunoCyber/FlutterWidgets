@@ -37,7 +37,7 @@ class _SliverBarState extends State<SliverBarPage> {
             excludeHeaderSemantics: false,
             expandedHeight: 300.0,
             flexibleSpace: FlexibleSpaceBar(
-              title: Text('Available seats'),
+              title: Text('SliverBar'),
               centerTitle: true,
               collapseMode: CollapseMode.pin,
               titlePadding: EdgeInsets.all(20),

@@ -22,7 +22,7 @@ class _SliverChildBuilderDelegateState
             floating: false,
             snap: false,
             flexibleSpace: FlexibleSpaceBar(
-              title: Text('SliverAnimatedOpacity'),
+              title: Text('SliverChildBuilderDelegate'),
               centerTitle: true,
             ),
             backgroundColor: Colors.blue[900],

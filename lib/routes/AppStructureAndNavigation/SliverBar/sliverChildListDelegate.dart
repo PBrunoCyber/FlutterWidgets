@@ -25,7 +25,7 @@ class _SliverChildListDelegateState extends State<SliverChildListDelegatePage> {
             floating: false,
             snap: false,
             flexibleSpace: FlexibleSpaceBar(
-              title: Text('SliverAnimatedOpacity'),
+              title: Text('SliverChildListDelegate'),
               centerTitle: true,
             ),
             backgroundColor: Colors.blue[900],
