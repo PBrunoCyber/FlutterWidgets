@@ -28,7 +28,7 @@ class _SliverFixedExtentListState extends State<SliverFixedExtentListPage> {
             delegate: SliverChildBuilderDelegate(
               (BuildContext context, int index) {
                 return Container(
-                  color: Colors.blue[100 * (index % 9) + 100],
+                  color: Colors.blue[100 * (index % 8) + 100],
                   child: Center(
                     child: Text(
                       'Index $index',
