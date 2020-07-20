@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 
-class SliverOpacityPage extends StatefulWidget {
+class SliverOverlapAbsorberPage extends StatefulWidget {
   @override
-  _SliverOpactiyState createState() => _SliverOpactiyState();
+  _SliverOverlapAbsorberState createState() => _SliverOverlapAbsorberState();
 }
 
-class _SliverOpactiyState extends State<SliverOpacityPage> {
-  bool _visible = true;
-
+class _SliverOverlapAbsorberState extends State<SliverOverlapAbsorberPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,12 +19,12 @@ class _SliverOpactiyState extends State<SliverOpacityPage> {
             expandedHeight: 200,
             backgroundColor: Colors.blue[900],
             flexibleSpace: FlexibleSpaceBar(
-              title: Text('SliverOpacity'),
+              title: Text('SliverOverlapAbsorber'),
               centerTitle: true,
             ),
           ),
-          SliverOpacity(
-            opacity: _visible ? 1.0 : 0.0,
+          SliverOverlapAbsorber(
+            handle: SliverOverlapAbsorberHandle(),
             sliver: SliverFixedExtentList(
                 delegate: SliverChildBuilderDelegate((context, index) {
                   return Container(
@@ -34,21 +32,6 @@ class _SliverOpactiyState extends State<SliverOpacityPage> {
                   );
                 }, childCount: 10),
                 itemExtent: 200),
-          ),
-          SliverToBoxAdapter(
-            child: Center(
-              child: Padding(
-                padding: EdgeInsets.all(5),
-                child: RaisedButton(
-                  child: Text('OPACITY'),
-                  onPressed: () {
-                    setState(() {
-                      _visible ? _visible = false : _visible = true;
-                    });
-                  },
-                ),
-              ),
-            ),
           ),
         ],
       ),

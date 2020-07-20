@@ -20,7 +20,7 @@ class _SliverListState extends State<SliverListPage> {
             snap: false,
             flexibleSpace: FlexibleSpaceBar(
               title: Text(
-                'Sliver List',
+                'SliverList',
                 textAlign: TextAlign.center,
               ),
               centerTitle: true,
