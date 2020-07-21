@@ -32,7 +32,7 @@ class _FilterChipState extends State<FilterChipPage> {
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(65),
         child: AppBar(
-          title: Text("Input Chip"),
+          title: Text("Fliter Chip"),
           centerTitle: true,
         ),
       ),
