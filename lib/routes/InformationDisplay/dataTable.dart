@@ -113,10 +113,12 @@ class _DataTableState extends State<DataTablePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
+            //DataTable
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: dataTables(),
             ),
+            //Show the names
             Container(
                 margin:
                     EdgeInsets.only(top: 40, left: 10, right: 10, bottom: 10),
