@@ -1,6 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:Learn_1/routes/InformationDisplay/gridView.dart';
+import 'package:Learn_1/routes/InformationDisplay/GridView/gridViewCount.dart';
 
 void main() {
   runApp(MyApp());
