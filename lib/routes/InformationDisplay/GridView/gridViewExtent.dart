@@ -1,35 +1,34 @@
 import 'package:flutter/material.dart';
 
-class GridViewPage extends StatefulWidget {
+class GridViewExtentPage extends StatefulWidget {
   @override
-  _GridViewState createState() => _GridViewState();
+  _GridViewExtentState createState() => _GridViewExtentState();
 }
 
-class _GridViewState extends State<GridViewPage> {
+class _GridViewExtentState extends State<GridViewExtentPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(60),
         child: AppBar(
-          title: Text("Grid View Count"),
+          title: Text("Grid View Extent"),
           centerTitle: true,
         ),
       ),
-      body: GridView.count(
+      body: GridView.extent(
         physics: BouncingScrollPhysics(),
         scrollDirection: Axis.vertical,
         addAutomaticKeepAlives: false,
         addRepaintBoundaries: true,
         addSemanticIndexes: true,
         semanticChildCount: 20,
-        crossAxisCount: 2,
+        maxCrossAxisExtent: 350,
         childAspectRatio: 1,
         crossAxisSpacing: 5,
         mainAxisSpacing: 5,
         padding: EdgeInsets.all(5),
         reverse: false,
-        cacheExtent: 200,
         shrinkWrap: false,
         primary: true,
         children: <Widget>[
