@@ -8,12 +8,14 @@ class DataTablePage extends StatefulWidget {
 class _DataTableState extends State<DataTablePage> {
   List<Usuarios> usu = Usuarios.list();
   List<Usuarios> _selected = [];
+  GlobalKey<ScaffoldState> _key;
   bool _asc;
   int _index;
 
   @override
   void initState() {
     usu = Usuarios.list();
+    _key = GlobalKey<ScaffoldState>();
     _asc = true;
     _index = 0;
     super.initState();
@@ -59,14 +61,15 @@ class _DataTableState extends State<DataTablePage> {
               _ordenar(sortIndex, sortAsc);
             }),
         DataColumn(
-            label: Text("Age"),
-            numeric: true,
-            onSort: (sortIndex, sortAsc) {
-              setState(() {
-                _asc = !_asc;
-              });
-              _ordenar(sortIndex, sortAsc);
-            }),
+          label: Text("Age"),
+          numeric: true,
+          onSort: (sortIndex, sortAsc) {
+            setState(() {
+              _asc = !_asc;
+            });
+            _ordenar(sortIndex, sortAsc);
+          },
+        ),
         DataColumn(label: Text("Email")),
         DataColumn(label: Text("Role")),
         DataColumn(label: Text("Address")),
@@ -78,7 +81,12 @@ class _DataTableState extends State<DataTablePage> {
             return _selectedUsu(select, e);
           },
           cells: [
-            DataCell(Text(e.name)),
+            DataCell(Text(e.name), showEditIcon: true, onTap: () {
+              _key.currentState.showSnackBar(SnackBar(
+                content: Text(e.name),
+                duration: Duration(milliseconds: 500),
+              ));
+            }, placeholder: false),
             DataCell(Text(e.age.toString())),
             DataCell(Text(e.email)),
             DataCell(Text(e.role)),
@@ -92,6 +100,7 @@ class _DataTableState extends State<DataTablePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _key,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(60),
         child: AppBar(
