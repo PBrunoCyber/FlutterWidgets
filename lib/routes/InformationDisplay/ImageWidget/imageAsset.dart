@@ -12,7 +12,7 @@ class _ImageAssetState extends State<ImageAssetPage> {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(60),
-        child: AppBar(title: Text("Image"), centerTitle: true),
+        child: AppBar(title: Text("Image Asset"), centerTitle: true),
       ),
       body: Container(
         alignment: Alignment.center,
@@ -20,7 +20,7 @@ class _ImageAssetState extends State<ImageAssetPage> {
           'lib/assets/coruja.jpg',
           fit: BoxFit.fill,
           height: 300,
-          scale: 12,
+          scale: 0.1,
           cacheHeight: 200,
           cacheWidth: 200,
           bundle: PlatformAssetBundle(),

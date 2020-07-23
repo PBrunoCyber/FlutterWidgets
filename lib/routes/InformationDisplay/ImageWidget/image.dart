@@ -27,7 +27,7 @@ class _ImageState extends State<ImagePage> {
           gaplessPlayback: false,
           color: Colors.indigo[900],
           colorBlendMode: BlendMode.colorDodge,
-          filterQuality: FilterQuality.low,
+          filterQuality: FilterQuality.high,
           excludeFromSemantics: false,
           frameBuilder: (context, child, frame, wasSynchronouslyLoaded) {
             if (wasSynchronouslyLoaded) {
