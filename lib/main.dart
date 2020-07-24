@@ -1,6 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:Learn_1/routes/DialogsAlertsAndPanels/simpleDialog.dart';
+import 'package:Learn_1/routes/DialogsAlertsAndPanels/snackBar.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
           appBarTheme:
               AppBarTheme(iconTheme: IconThemeData(color: Colors.white))),
       title: _title,
-      home: SimpleDialogPage(),
+      home: SnackBarPage(),
     );
   }
 }
