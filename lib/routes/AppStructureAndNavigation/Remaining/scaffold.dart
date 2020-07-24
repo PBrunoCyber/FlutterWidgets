@@ -86,28 +86,29 @@ class FloatingAction extends State<FloatActionBottom> {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
-        onPressed: () {
-          if (isActive) {
-            Navigator.pop(context);
-            icon = Icon(Icons.slideshow);
+      onPressed: () {
+        if (isActive) {
+          Navigator.pop(context);
+          icon = Icon(Icons.slideshow);
+          setState(() {
+            isActive = false;
+          });
+        } else {
+          icon = Icon(Icons.close);
+          setState(() {
+            isActive = true;
+          });
+          var bottom = modal.bottomSheet(context);
+          bottom.closed.then((values) {
             setState(() {
               isActive = false;
+              icon = Icon(Icons.slideshow);
             });
-          } else {
-            icon = Icon(Icons.close);
-            setState(() {
-              isActive = true;
-            });
-            var bottom = modal.bottomSheet(context);
-            bottom.closed.then((values) {
-              setState(() {
-                isActive = false;
-                icon = Icon(Icons.slideshow);
-              });
-            });
-          }
-        },
-        backgroundColor: Colors.blue[100],
-        child: icon);
+          });
+        }
+      },
+      backgroundColor: Colors.blue[100],
+      child: icon,
+    );
   }
 }
