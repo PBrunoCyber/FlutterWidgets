@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:Learn_1/routes/MaterialApp/ListAndAnimate/firstPage.dart';
+import 'package:Learn_1/pages/MaterialApp/ListAndAnimate/firstPage.dart';
 
 class HomePageList extends StatelessWidget {
   @override

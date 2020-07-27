@@ -1,6 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:Learn_1/routes/DialogsAlertsAndPanels/snackBar.dart';
+import 'package:Learn_1/pages/LayoutWidgets/stepper.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,12 +13,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-          brightness: Brightness.light,
-          primaryColor: Colors.blue[900],
-          appBarTheme:
-              AppBarTheme(iconTheme: IconThemeData(color: Colors.white))),
+        brightness: Brightness.light,
+        primaryColor: Colors.blue[900],
+        appBarTheme: AppBarTheme(iconTheme: IconThemeData(color: Colors.white)),
+      ),
       title: _title,
-      home: SnackBarPage(),
+      home: StepperPage(),
     );
   }
 }

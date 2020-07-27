@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:Learn_1/routes/MaterialApp/namedRoutesArguments.dart';
+import 'package:Learn_1/pages/MaterialApp/namedRoutesArguments.dart';
 
 class SecondPage extends StatelessWidget {
   @override
