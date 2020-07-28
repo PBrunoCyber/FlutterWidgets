@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:Learn_1/pages/MaterialApp/ListAndAnimate/secondPage.dart';
+import 'package:Learn_1/pages/MaterialComponents/MaterialApp/ListAndAnimate/secondPage.dart';
 
 class FirstPageList extends StatelessWidget {
   final List<Lista> listas;

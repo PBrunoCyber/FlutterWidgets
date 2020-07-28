@@ -1,0 +1,4 @@
+easeInBack
+easeOutBack
+easeInOutBack
+elasticOut

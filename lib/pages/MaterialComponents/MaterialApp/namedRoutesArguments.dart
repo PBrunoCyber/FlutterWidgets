@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:Learn_1/pages/MaterialApp/firshPage.dart';
-import 'package:Learn_1/pages/MaterialApp/secondPage.dart';
+import 'package:Learn_1/pages/MaterialComponents/MaterialApp/firshPage.dart';
+import 'package:Learn_1/pages/MaterialComponents/MaterialApp/secondPage.dart';
 
 class NamedRoutesArguments extends StatefulWidget {
   @override
