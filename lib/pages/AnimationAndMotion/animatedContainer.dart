@@ -51,9 +51,11 @@ class _AnimatedContainerState extends State<AnimatedContainerPage> {
                     color: selected ? Colors.indigo[900] : Colors.grey,
                     shape: selected
                         ? RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20))
+                            borderRadius: BorderRadius.circular(20),
+                          )
                         : RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
                   ),
                 ),
               ),
