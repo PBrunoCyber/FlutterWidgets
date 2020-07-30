@@ -5,7 +5,8 @@ class AnimatedModalBarrierPage extends StatefulWidget {
   _AnimatedModalBarrierState createState() => _AnimatedModalBarrierState();
 }
 
-class _AnimatedModalBarrierState extends State<AnimatedModalBarrierPage> {
+class _AnimatedModalBarrierState extends State<AnimatedModalBarrierPage>
+    with TickerProviderStateMixin {
   bool _dismissable = false;
 
   @override
@@ -41,10 +42,7 @@ class _AnimatedModalBarrierState extends State<AnimatedModalBarrierPage> {
 }
 
 class ModalPageRoute extends TransitionRoute {
-  ModalPageRoute({
-    @required this.page,
-    @required this.dismissible,
-  });
+  ModalPageRoute({@required this.page, @required this.dismissible});
 
   final Widget page;
   final bool dismissible;
@@ -61,7 +59,10 @@ class ModalPageRoute extends TransitionRoute {
   bool get opaque => false;
 
   @override
-  Duration get transitionDuration => Duration(milliseconds: 500);
+  Duration get transitionDuration => Duration(seconds: 1);
+
+  @override
+  Duration get reverseTransitionDuration => Duration(milliseconds: 1);
 
   Widget _buildModalBarrier(BuildContext context) {
     return IgnorePointer(
@@ -69,8 +70,9 @@ class ModalPageRoute extends TransitionRoute {
           animation.status == AnimationStatus.forward,
       child: AnimatedModalBarrier(
         dismissible: dismissible,
-        color: animation.drive(ColorTween(
-            begin: Colors.transparent, end: Colors.black.withAlpha(80))),
+        color: animation.drive(
+          ColorTween(begin: Colors.transparent, end: Colors.blue.withAlpha(80)),
+        ),
       ),
     );
   }
