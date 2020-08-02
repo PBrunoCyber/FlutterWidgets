@@ -17,10 +17,11 @@ class NamedRoutesMaterial extends State<NamedRoutesArguments> {
           case '/firstPage':
             final Dados dados = settings.arguments;
             return MaterialPageRoute(
-                builder: (context) => FirstPage(
-                      titulo: dados.titulo,
-                      descricao: dados.descricao,
-                    ));
+              builder: (context) => FirstPage(
+                titulo: dados.titulo,
+                descricao: dados.descricao,
+              ),
+            );
             break;
           default:
             print('Deu erro!');

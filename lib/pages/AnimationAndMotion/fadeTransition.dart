@@ -54,8 +54,9 @@ class _FadeTransitionState extends State<FadeTransitionPage>
                   (_isForward) ? _controller.forward() : _controller.reverse();
                 });
               },
-              borderSide: BorderSide(color: Colors.black),
+              borderSide: BorderSide(color: Colors.blue[900]),
               child: Text("Change Fade Transition"),
+              textColor: Colors.blue[900],
             )
           ],
         ),
