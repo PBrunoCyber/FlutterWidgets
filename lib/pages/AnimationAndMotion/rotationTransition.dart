@@ -20,7 +20,6 @@ class _RotationTransitionState extends State<RotationTransitionPage>
     _curve = CurvedAnimation(parent: _controller, curve: Curves.elasticInOut);
     _animation = Tween<double>(begin: 0, end: 1).animate(_curve);
     _controller.forward();
-
     super.initState();
   }
 
