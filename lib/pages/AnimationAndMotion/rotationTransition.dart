@@ -41,6 +41,7 @@ class _RotationTransitionState extends State<RotationTransitionPage>
             padding: EdgeInsets.all(20),
             child: RotationTransition(
               turns: _animation,
+              alignment: Alignment.topRight,
               child: Container(height: 300, width: 300, child: FlutterLogo()),
             ),
           ),

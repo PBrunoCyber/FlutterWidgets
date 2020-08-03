@@ -54,6 +54,7 @@ class _ScaleTransitionState extends State<ScaleTransitionPage>
           children: <Widget>[
             ScaleTransition(
               scale: _animation,
+              alignment: Alignment.topLeft,
               child: Container(
                 height: 300,
                 width: 300,
