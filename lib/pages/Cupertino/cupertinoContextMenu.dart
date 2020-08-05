@@ -32,30 +32,54 @@ class _CupertinoContextMenuState extends State<CupertinoContextMenuPage> {
                 child: CupertinoContextMenu(
                   actions: <Widget>[
                     CupertinoContextMenuAction(
-                      child: Center(child: Text("Visitar Perfil")),
+                      child: Center(child: Text("Sim")),
                       onPressed: () {
                         Navigator.pop(context);
-                        setState(() => _request = "Visitar Perfil");
+                        setState(() => _request = "Sim");
                       },
                     ),
                     CupertinoContextMenuAction(
-                      child: Center(child: Text("Cancelar")),
+                      child: Center(child: Text("Não")),
                       isDestructiveAction: true,
                       onPressed: () {
                         Navigator.pop(context);
-                        setState(() => _request = "Cancelar");
+                        setState(() => _request = "Não");
                       },
                     ),
                   ],
                   child: Image.network(
                     'https://cdn.pixabay.com/photo/2013/07/13/11/56/frog-159002_960_720.png',
-                    height: 200,
-                    width: 200,
                     loadingBuilder: (context, child, loadingProgress) {
                       if (loadingProgress == null) return child;
                       return CupertinoActivityIndicator();
                     },
                   ),
+                  previewBuilder: (context, animation, child) {
+                    return Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Expanded(
+                          flex: 10,
+                          child: Image.network(
+                            'https://cdn.pixabay.com/photo/2013/07/13/11/56/frog-159002_960_720.png',
+                            height: 300,
+                            width: 300,
+                            loadingBuilder: (context, child, loadingProgress) {
+                              if (loadingProgress == null) return child;
+                              return CupertinoActivityIndicator();
+                            },
+                          ),
+                        ),
+                        Expanded(
+                          flex: 1,
+                          child: Text(
+                            "Você gostou dessa foto?",
+                            style: (Theme.of(context).textTheme.headline5),
+                          ),
+                        ),
+                      ],
+                    );
+                  },
                 ),
               ),
             ),
