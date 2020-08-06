@@ -21,9 +21,12 @@ class _CupertinoPickerState extends State<CupertinoPickerPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text("Cupertino Picker"), centerTitle: true),
-      body: Center(
+    return CupertinoPageScaffold(
+      navigationBar: CupertinoNavigationBar(
+        middle: Text("Cupertino Picker"),
+        backgroundColor: Colors.grey.shade100,
+      ),
+      child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -53,6 +56,7 @@ class _PickerCupertinoState extends State<PickerCupertino>
   //Variables
   AnimationController _controller;
   Animation<Offset> _animation;
+
   static List<String> _cities = [
     "San Francisco",
     "New York",
@@ -120,6 +124,7 @@ class _PickerCupertinoState extends State<PickerCupertino>
                       borderRadius:
                           BorderRadius.vertical(top: Radius.circular(30)))),
               child: CupertinoPicker.builder(
+                scrollController: FixedExtentScrollController(initialItem: 6),
                 itemExtent: 25,
                 onSelectedItemChanged: (value) {
                   setState(() => _select = _cities[value]);
