@@ -58,7 +58,6 @@ class _CupertinoScrollBarState extends State<CupertinoScrollBarPage>
       child: Padding(
         padding: EdgeInsets.all(10),
         child: CupertinoScrollbar(
-          controller: _scrollController,
           child: _list,
         ),
       ),
