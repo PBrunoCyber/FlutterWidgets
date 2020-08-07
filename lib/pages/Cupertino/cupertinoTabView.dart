@@ -10,7 +10,6 @@ class CupertinoTabViewPage extends StatefulWidget {
 class _CupertinoTabViewState extends State<CupertinoTabViewPage> {
   //Variables
   int _index = 0;
-
   static Widget _bodies(BuildContext context, String buttonName, String route) {
     return Center(
       child: CupertinoButton(
