@@ -52,6 +52,7 @@ class _CupertinoSwitchState extends State<CupertinoSwitchPage> {
                           style: Theme.of(context).textTheme.headline6),
                       CupertinoSwitch(
                         value: _isActive[index],
+                        activeColor: _color[index],
                         onChanged: (value) {
                           for (int i = 0; i < _isActive.length; i++) {
                             _isActive[i] = false;
