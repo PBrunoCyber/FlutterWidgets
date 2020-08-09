@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-class FutureBuilder1Page extends StatefulWidget {
+class FutureBuilderUserPage extends StatefulWidget {
   @override
-  _FutureBuilder1State createState() => _FutureBuilder1State();
+  _FutureBuilderUserState createState() => _FutureBuilderUserState();
 }
 
-class _FutureBuilder1State extends State<FutureBuilder1Page> {
+class _FutureBuilderUserState extends State<FutureBuilderUserPage> {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
