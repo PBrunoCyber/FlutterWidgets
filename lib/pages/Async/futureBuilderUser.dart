@@ -13,7 +13,7 @@ class _FutureBuilderUserState extends State<FutureBuilderUserPage> {
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
-          middle: Text("Future Builder"),
+          middle: Text("Future Builder User"),
           backgroundColor: Colors.grey.shade200),
       child: Center(
         child: FutureBuilder(
