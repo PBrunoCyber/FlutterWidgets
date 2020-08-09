@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:Learn_1/pages/Async/futureBuilderRepo.dart';
+import 'package:Learn_1/pages/Async/futureBuilder.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         appBarTheme: AppBarTheme(iconTheme: IconThemeData(color: Colors.white)),
       ),
       title: _title,
-      home: FutureBuilderRepoPage(),
+      home: FutureBuilderPage(),
     );
   }
 }

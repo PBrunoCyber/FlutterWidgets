@@ -11,14 +11,14 @@ class FutureBuilderRepoPage extends StatefulWidget {
 class _FutureBuilderRepoState extends State<FutureBuilderRepoPage> {
   Future<User> _user() async {
     var snapshot = await http.get(
-        'https://api.github.com/users/mojombo?access_token=207086eb63c89c976d9e8357b68f1f2c84ed5282');
+        'https://api.github.com/users/mojombo?access_token=e9e6c5980e9ac14ac01ff0b924966b1480774e53 ');
     Map<String, dynamic> response = jsonDecode(snapshot.body);
     return User.fromJson(response);
   }
 
   Future<List<UserRepo>> _userRepo() async {
     var snapshot = await http.get(
-        'https://api.github.com/users/mojombo/repos?access_token=207086eb63c89c976d9e8357b68f1f2c84ed5282');
+        'https://api.github.com/users/mojombo/repos?access_token=e9e6c5980e9ac14ac01ff0b924966b1480774e53 ');
     List<dynamic> response = jsonDecode(snapshot.body);
     return response.map((e) => UserRepo.fromJson(e)).toList();
   }

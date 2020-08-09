@@ -30,7 +30,8 @@ class _FutureBuilderUserState extends State<FutureBuilderUserPage> {
   }
 
   Future<User> _user() async {
-    var snapshot = await http.get('https://api.github.com/users/PBrunoCyber');
+    var snapshot = await http.get(
+        'https://api.github.com/users/PBrunoCyber?access_token=e9e6c5980e9ac14ac01ff0b924966b1480774e53');
     Map<String, dynamic> response = jsonDecode(snapshot.body);
     return User.fromJson(response);
   }
