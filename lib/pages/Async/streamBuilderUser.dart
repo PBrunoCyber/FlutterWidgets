@@ -64,33 +64,12 @@ class _StreamBuilderUserState extends State<StreamBuilderUserPage> {
     super.initState();
   }
 
-  void _addUser(BuildContext context) async {
-    var response = await showCupertinoModalPopup(
-      context: context,
-      builder: (context) {
-        return AddUserModal();
-      },
-    );
-    setState(() {
-      if (response != null) {
-        _user.add(response);
-        _streamController.add(_user);
-        Future.delayed(Duration(milliseconds: 100), () {
-          _scrollController.animateTo(
-              _scrollController.position.maxScrollExtent,
-              duration: Duration(seconds: 4),
-              curve: Curves.elasticOut);
-        });
-      }
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       backgroundColor: Colors.grey.shade100,
       navigationBar: CupertinoNavigationBar(
-        middle: Text("Stream Builder Users"),
+        middle: Text("Stream Builder User"),
         backgroundColor: Colors.grey.shade200,
         trailing: GestureDetector(
           onTap: () => _addUser(context),
@@ -196,6 +175,27 @@ class _StreamBuilderUserState extends State<StreamBuilderUserPage> {
         ),
       ),
     );
+  }
+
+  void _addUser(BuildContext context) async {
+    var response = await showCupertinoModalPopup(
+      context: context,
+      builder: (context) {
+        return AddUserModal();
+      },
+    );
+    setState(() {
+      if (response != null) {
+        _user.add(response);
+        _streamController.add(_user);
+        Future.delayed(Duration(milliseconds: 100), () {
+          _scrollController.animateTo(
+              _scrollController.position.maxScrollExtent,
+              duration: Duration(seconds: 4),
+              curve: Curves.elasticOut);
+        });
+      }
+    });
   }
 }
 

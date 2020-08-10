@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -9,20 +7,11 @@ class StreamBuilderPage extends StatefulWidget {
 }
 
 class _StreamBuilderState extends State<StreamBuilderPage> {
-  int _counter = 0;
-  StreamController<int> _streamController;
-
-  @override
-  void initState() {
-    super.initState();
-    _streamController = StreamController<int>();
-    _streamController.add(0);
-  }
-
-  void _incrementCounter() {
-    _counter++;
-    _streamController.add(_counter);
-  }
+  Stream<int> _stream = (() async* {
+    await Future.delayed(Duration(seconds: 1));
+    yield 1;
+    await Future.delayed(Duration(seconds: 2));
+  })();
 
   @override
   Widget build(BuildContext context) {
@@ -32,30 +21,95 @@ class _StreamBuilderState extends State<StreamBuilderPage> {
         backgroundColor: Colors.grey.shade200,
       ),
       child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-              style: Theme.of(context).textTheme.bodyText2,
-            ),
-            StreamBuilder(
-              stream: _streamController.stream,
-              builder: (BuildContext context, snapshot) {
-                return Text(
-                  snapshot.data.toString(),
-                  style: Theme.of(context).textTheme.bodyText2,
-                );
-              },
-            ),
-            Padding(
-              padding: EdgeInsets.all(20),
-              child: CupertinoButton.filled(
-                child: Text("Increment"),
-                onPressed: _incrementCounter,
-              ),
-            ),
-          ],
+        child: StreamBuilder(
+          stream: _stream,
+          builder: (context, snapshot) {
+            List<Widget> _children;
+            if (snapshot.hasError) {
+              _children = [
+                Icon(
+                  Icons.close,
+                  size: 90,
+                  color: Colors.red,
+                ),
+                Text(
+                  "Houve algum erro!",
+                  style: Theme.of(context).textTheme.headline6,
+                )
+              ];
+            } else {
+              switch (snapshot.connectionState) {
+                case ConnectionState.none:
+                  _children = <Widget>[
+                    Icon(
+                      Icons.info,
+                      color: Colors.blue,
+                      size: 90,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(top: 16),
+                      child: Text(
+                        'Select a lot',
+                        style: Theme.of(context).textTheme.headline6,
+                      ),
+                    )
+                  ];
+                  break;
+                case ConnectionState.waiting:
+                  _children = [
+                    Container(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Awaiting results... ",
+                            style: Theme.of(context).textTheme.headline6,
+                          ),
+                          CupertinoActivityIndicator()
+                        ],
+                      ),
+                    )
+                  ];
+                  break;
+                case ConnectionState.active:
+                  _children = <Widget>[
+                    Icon(
+                      Icons.check_circle_outline,
+                      color: Colors.green,
+                      size: 60,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 16),
+                      child: Text(
+                        "Result: " + snapshot.data.toString(),
+                        style: Theme.of(context).textTheme.headline6,
+                      ),
+                    )
+                  ];
+                  break;
+                case ConnectionState.done:
+                  _children = <Widget>[
+                    Icon(
+                      Icons.info,
+                      color: Colors.blue,
+                      size: 60,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 16),
+                      child: Text(
+                        '${snapshot.data} (closed)',
+                        style: Theme.of(context).textTheme.headline6,
+                      ),
+                    )
+                  ];
+                  break;
+              }
+            }
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: _children,
+            );
+          },
         ),
       ),
     );
