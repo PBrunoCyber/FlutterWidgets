@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:Learn_1/pages/PaintingAndEffect/clipOval.dart';
+import 'package:Learn_1/pages/PaintingAndEffect/clipRect.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         appBarTheme: AppBarTheme(iconTheme: IconThemeData(color: Colors.white)),
       ),
       title: _title,
-      home: ClipOvalPage(),
+      home: ClipRectPage(),
     );
   }
 }

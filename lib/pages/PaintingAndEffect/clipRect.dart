@@ -1,26 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
-class ClipOvalPage extends StatefulWidget {
+class ClipRectPage extends StatefulWidget {
   @override
-  _ClipOvalState createState() => _ClipOvalState();
+  _ClipRectState createState() => _ClipRectState();
 }
 
-class _ClipOvalState extends State<ClipOvalPage> {
+class _ClipRectState extends State<ClipRectPage> {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
-        middle: Text("Clip Oval"),
+        middle: Text("ClipRect"),
         backgroundColor: Colors.grey.shade200,
       ),
       child: Center(
-        child: ClipOval(
-          clipper: OvalClipper(),
+        child: ClipRect(
+          clipper: RectClipper(),
           child: Image.network(
             "https://i.pinimg.com/originals/ca/76/0b/ca760b70976b52578da88e06973af542.jpg",
             height: 300,
-            width: 400,
+            width: 300,
           ),
         ),
       ),
@@ -28,10 +28,10 @@ class _ClipOvalState extends State<ClipOvalPage> {
   }
 }
 
-class OvalClipper extends CustomClipper<Rect> {
+class RectClipper extends CustomClipper<Rect> {
   @override
   Rect getClip(Size size) {
-    return Rect.fromLTWH(65, 0, 270, 270);
+    return Rect.fromLTWH(-20, -20, 250, 250);
   }
 
   @override
