@@ -34,12 +34,12 @@ class _BackdropFilterState extends State<BackdropFilterPage> {
                       child: BackdropFilter(
                         filter: ImageFilter.blur(sigmaX: _blur, sigmaY: _blur),
                         child: Container(
-                          color: Colors.black.withOpacity(0),
+                          color: Colors.red.withOpacity(0),
                         ),
                       ),
                     ),
                   ),
-                )
+                ),
               ],
             ),
           ),
