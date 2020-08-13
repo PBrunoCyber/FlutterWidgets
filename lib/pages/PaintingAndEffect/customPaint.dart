@@ -239,14 +239,6 @@ class PaintPainter extends CustomPainter {
     @required this.strokeWidth,
   });
 
-  //Poligonos
-  // final double sides;
-  // final double radius;
-  // final double radians;
-
-  // PaintPainter(
-  //     {@required this.sides, @required this.radians, @required this.radius});
-
   @override
   void paint(Canvas canvas, Size size) {
     for (int i = 0; i < list.length - 1; i++) {
@@ -256,21 +248,6 @@ class PaintPainter extends CustomPainter {
         canvas.drawPoints(PointMode.points, [list[i].points], list[i].paint);
       }
     }
-
-    //Poligonos
-    // var path = Path();
-    // var angle = (math.pi * 2) / sides;
-    // Offset center = Offset(size.width / 2, size.height / 2);
-    // Offset startPoint =
-    //     Offset(radius * math.cos(radians), radius * math.sin(radians));
-    // path.moveTo(startPoint.dx + center.dx, startPoint.dy + center.dy);
-
-    // for (int i = 1; i <= sides + 1; i++) {
-    //   double x = radius * math.cos(radians + angle * i) + center.dx;
-    //   double y = radius * math.sin(radians + angle * i) + center.dy;
-    //   path.lineTo(x, y);
-    // }
-    // canvas.drawPath(path, paint);
 
     //Circulo com o path
     // var path = Path();
