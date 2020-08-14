@@ -73,19 +73,23 @@ class _CustomPaintState extends State<CustomPaintPage> {
                 children: [
                   Expanded(
                     flex: 4,
-                    child: CupertinoSlider(
-                      value: _strokeWidth,
-                      min: 5.0,
-                      max: 20,
-                      activeColor: _selectColor,
-                      divisions: 10,
-                      onChanged: (value) {
-                        setState(() => _strokeWidth = value);
-                      },
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 20.0),
+                      child: CupertinoSlider(
+                        value: _strokeWidth,
+                        min: 5.0,
+                        max: 20,
+                        activeColor: _selectColor,
+                        divisions: 10,
+                        onChanged: (value) {
+                          setState(() => _strokeWidth = value);
+                        },
+                      ),
                     ),
                   ),
                   Expanded(
                     child: Scaffold(
+                      backgroundColor: Colors.transparent,
                       body: Padding(
                         padding: const EdgeInsets.only(left: 20.0),
                         child: CircleAvatar(
@@ -103,6 +107,7 @@ class _CustomPaintState extends State<CustomPaintPage> {
                   ),
                   Expanded(
                     child: Scaffold(
+                      backgroundColor: Colors.transparent,
                       body: Padding(
                         padding: const EdgeInsets.only(left: 10.0),
                         child: CircleAvatar(
