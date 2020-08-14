@@ -2,7 +2,6 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'dart:math' as math;
 
 class CustomPaintPage extends StatefulWidget {
   @override
@@ -248,23 +247,6 @@ class PaintPainter extends CustomPainter {
         canvas.drawPoints(PointMode.points, [list[i].points], list[i].paint);
       }
     }
-
-    //Circulo com o path
-    // var path = Path();
-    // path.addOval(Rect.fromCircle(
-    //     center: Offset(size.width / 2, size.height / 2), radius: 100));
-    // canvas.drawPath(path, paint);
-
-    //Circulo com o canvas
-    // Offset center = Offset(size.width / 2, size.height / 2);
-    // canvas.drawCircle(center, 100, paint);
-
-    //Line
-    // var path = Path();
-    // path.moveTo(20, size.height / 2);
-    // path.lineTo(size.width - 20, size.height / 2);
-
-    //canvas.drawPath(path, paint);
   }
 
   @override
