@@ -1,4 +1,4 @@
-import 'package:Learn_1/pages/TouchInteractions/absorbPointer.dart';
+import 'package:Learn_1/pages/TouchInteractions/dismissible.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         appBarTheme: AppBarTheme(iconTheme: IconThemeData(color: Colors.white)),
       ),
       title: _title,
-      home: AbsorbPointerPage(),
+      home: DismissiblePage(),
     );
   }
 }
