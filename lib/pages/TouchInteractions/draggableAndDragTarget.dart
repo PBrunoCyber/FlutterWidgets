@@ -18,43 +18,48 @@ class _DraggableState extends State<DraggablePage> {
         middle: Text("Draggable"),
         backgroundColor: Colors.grey.shade200,
       ),
-      body: Padding(
-        padding: EdgeInsets.all(10),
-        child: Stack(
-          children: [
-            Positioned(
-              left: _screenWidth / 3 + 10,
-              bottom: _screenHeight / 1.5,
-              child: DragTarget(
-                builder: (context, candidateData, rejectedData) {
-                  return ColorFiltered(
+      body: Stack(
+        alignment: Alignment.center,
+        children: [
+          Positioned(
+            left: _screenWidth / 3 + 10,
+            bottom: _screenHeight / 1.5,
+            child: DragTarget(
+              builder: (context, candidateData, rejectedData) {
+                return Center(
+                  child: ColorFiltered(
                     colorFilter: ColorFilter.mode(
-                        _isAccept ? Colors.transparent : Colors.black,
-                        BlendMode.srcATop),
-                    child: Image.network(
-                      'https://cdn.pixabay.com/photo/2013/07/13/11/56/frog-159002_960_720.png',
+                      _isAccept ? Colors.transparent : Colors.black,
+                      BlendMode.srcATop,
+                    ),
+                    child: Container(
                       height: 100,
                       width: 100,
-                      loadingBuilder: (context, child, loadingProgress) {
-                        if (loadingProgress == null) return child;
-                        return CupertinoActivityIndicator();
-                      },
+                      child: Center(
+                        child: Image.network(
+                          'https://cdn.pixabay.com/photo/2013/07/13/11/56/frog-159002_960_720.png',
+                          loadingBuilder: (context, child, loadingProgress) {
+                            if (loadingProgress == null) return child;
+                            return CupertinoActivityIndicator();
+                          },
+                        ),
+                      ),
                     ),
-                  );
-                },
-                onAccept: (int data) {
-                  if (data == 0) {
-                    setState(() => _isAccept = true);
-                  }
-                },
-              ),
+                  ),
+                );
+              },
+              onAccept: (int data) {
+                if (data == 0) {
+                  setState(() => _isAccept = true);
+                }
+              },
             ),
-            DragWidget(
-              offset: Offset(_screenWidth / 3 + 10, _screenHeight / 4),
-              isAccept: _isAccept,
-            ),
-          ],
-        ),
+          ),
+          DragWidget(
+            offset: Offset(_screenWidth / 3 + 10, _screenHeight / 4),
+            isAccept: _isAccept,
+          ),
+        ],
       ),
     );
   }
@@ -85,14 +90,18 @@ class _DragWidgetState extends State<DragWidget> {
       bottom: offset.dy,
       child: Draggable(
         child: !widget.isAccept
-            ? Image.network(
-                'https://cdn.pixabay.com/photo/2013/07/13/11/56/frog-159002_960_720.png',
+            ? Container(
                 height: 100,
                 width: 100,
-                loadingBuilder: (context, child, loadingProgress) {
-                  if (loadingProgress == null) return child;
-                  return CupertinoActivityIndicator();
-                },
+                child: Center(
+                  child: Image.network(
+                    'https://cdn.pixabay.com/photo/2013/07/13/11/56/frog-159002_960_720.png',
+                    loadingBuilder: (context, child, loadingProgress) {
+                      if (loadingProgress == null) return child;
+                      return CupertinoActivityIndicator();
+                    },
+                  ),
+                ),
               )
             : Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -121,11 +130,6 @@ class _DragWidgetState extends State<DragWidget> {
             },
           ),
         ),
-        onDraggableCanceled: (velocity, offset) {
-          setState(() {
-            this.offset = Offset(offset.dx, offset.dy);
-          });
-        },
         data: 0,
       ),
     );
