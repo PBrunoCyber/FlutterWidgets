@@ -36,32 +36,34 @@ class _TransformState extends State<TransformPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: CupertinoNavigationBar(
-          middle: Text("Testing"),
-          backgroundColor: Colors.grey.shade200,
-        ),
-        body: ListView.builder(
-          itemCount: 4,
-          itemBuilder: (context, index) {
-            return Stack(
-              alignment: Alignment.center,
-              children: [
-                Transform(
-                  alignment: Alignment.center,
-                  transform:
-                      Matrix4(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
-                        ..rotateZ(_rotate[index].value),
-                  child: Container(
-                    width: _sizeWidth[index].value,
-                    height: _sizeHeight[index].value,
-                    color: _color[index],
-                    child: CupertinoButton(
-                        child: Text(""), onPressed: () => print(index)),
-                  ),
+      appBar: CupertinoNavigationBar(
+        middle: Text("Testing"),
+        backgroundColor: Colors.grey.shade200,
+      ),
+      body: ListView.builder(
+        itemCount: 4,
+        itemBuilder: (context, index) {
+          return Stack(
+            clipBehavior: Clip.none,
+            alignment: Alignment.center,
+            children: [
+              Transform(
+                transform:
+                    Matrix4(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 220, 0, 1)
+                      ..rotateZ(_rotate[index].value),
+                child: Container(
+                  width: _sizeWidth[index].value,
+                  height: _sizeHeight[index].value,
+                  color: _color[index],
+                  child: CupertinoButton.filled(
+                      child: Text(""), onPressed: () => print(index)),
                 ),
-              ],
-            );
-          },
-        ));
+                alignment: Alignment.center,
+              ),
+            ],
+          );
+        },
+      ),
+    );
   }
 }
