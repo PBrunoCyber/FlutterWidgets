@@ -14,6 +14,28 @@ class _IgnorePointerState extends State<IgnorePointerPage> {
         middle: Text("Ignore Pointer"),
         backgroundColor: Colors.grey.shade200,
       ),
+      body: Center(
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            GestureDetector(
+              onTap: () {
+                print("Ok");
+              },
+              child: Container(width: 200, height: 200, color: Colors.red[900]),
+            ),
+            IgnorePointer(
+              child: GestureDetector(
+                onTap: () {
+                  print("Ok1");
+                },
+                child:
+                    Container(width: 100, height: 100, color: Colors.red[500]),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
