@@ -49,7 +49,7 @@ class _TransformState extends State<TransformPage>
             children: [
               Transform(
                 transform:
-                    Matrix4(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 220, 0, 1)
+                    Matrix4(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
                       ..rotateZ(_rotate[index].value),
                 child: Container(
                   width: _sizeWidth[index].value,
