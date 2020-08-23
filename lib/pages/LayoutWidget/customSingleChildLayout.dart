@@ -19,7 +19,9 @@ class _CustomSingleChildLayoutState extends State<CustomSingleChildLayoutPage> {
         backgroundColor: Colors.grey.shade200,
       ),
       body: CustomSingleChildLayout(
-        delegate: Delegate(offset: Offset(_screenWidth / 8, _screenHeight / 2)),
+        delegate: Delegate(
+          offset: Offset(_screenWidth / 8, _screenHeight / 2),
+        ),
         child: GestureDetector(
           onTap: () => print("Ok"),
           child: Container(
