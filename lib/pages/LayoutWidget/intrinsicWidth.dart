@@ -1,29 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
-class IntrinsicHeightPage extends StatefulWidget {
+class IntrinsicWidthPage extends StatefulWidget {
   @override
-  _IntrinsicHeightState createState() => _IntrinsicHeightState();
+  _IntrinsicWidthState createState() => _IntrinsicWidthState();
 }
 
-class _IntrinsicHeightState extends State<IntrinsicHeightPage> {
+class _IntrinsicWidthState extends State<IntrinsicWidthPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CupertinoNavigationBar(
-        middle: Text("Intrinsic Height"),
+        middle: Text("Intrinsic Width"),
         backgroundColor: Colors.grey.shade200,
       ),
       body: Center(
         child: FractionallySizedBox(
-          heightFactor: 0.2,
+          heightFactor: 0.3,
           widthFactor: 0.95,
-          child: IntrinsicHeight(
+          child: IntrinsicWidth(
             child: Container(
-              alignment: Alignment.centerLeft,
-              color: Colors.grey.shade200,
+              alignment: Alignment.topCenter,
+              color: Colors.grey.shade300,
               child: Container(
-                width: 100,
+                height: 100,
                 color: Colors.grey,
               ),
             ),
